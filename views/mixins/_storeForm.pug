@@ -1,11 +1,11 @@
 mixin storeForm(store = {})
-    form(action="/add" method="POST" enctype="multipart/form-data" class="card")
+    form(action="/add" method="POST" class="card")
         label(for="name") Name
         input(type="text" name="name")
         label(for="description") Description
         br
         br
-        input(type="text" name="description")
+        textarea(type="text" name="description")
         - const choices = ['Vegan', 'Vegetarian', 'Gluten Free', 'Locally Sourced']
         ul.tags
             each choice in choices
