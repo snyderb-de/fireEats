@@ -1,11 +1,6 @@
-div.wrapper.second-wrapper-class
-    - const upDoggy = dog.toUpperCase();
-    p.hello HEY NOW #{upDoggy}!
-    span#yo Yo!
-    br
-    img.dog(src="dog.jpg" alt=`Dog ${dog}`)
+extends layout
 
-h2
-    emptyDiv
-    | Wtf
-    em whoaaaaa brah
+block content
+    p.hello HEY NOW!
+    br
+    h3 SHTF in #{h.moment().endOf('month').fromNow()}
