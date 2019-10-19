@@ -1,14 +1,14 @@
+/* eslint-disable import/newline-after-import */
 const mongoose = require('mongoose');
-
 mongoose.Promise = global.Promise;
-
 const slug = require('slugs');
 
+// build out the store's schema
 const storeSchema = new mongoose.Schema({
     name: {
         type: String,
         trim: true,
-        required: 'Please enter a store name',
+        required: 'Please enter a store name', // this is actually an error message lol
     },
     slug: String,
     description: {
@@ -18,6 +18,7 @@ const storeSchema = new mongoose.Schema({
     tags: [String],
 });
 
+// this has to be a proper function to use "!this."
 storeSchema.pre('save', function(next) {
     if (!this.isModified('name')) {
         next(); // skip
@@ -25,7 +26,7 @@ storeSchema.pre('save', function(next) {
     }
     this.slug = slug(this.name);
     next();
-    // TODO: make slugs unique
+    // Need to fix to make slugs unique
 });
 
 module.exports = mongoose.model('Store', storeSchema);

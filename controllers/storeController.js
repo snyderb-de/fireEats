@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const Store = mongoose.model('Store');
 
 exports.homePage = (req, res) => {
-    console.log(req.name);
     res.render('layout');
 };
 
@@ -12,7 +11,7 @@ exports.addStore = (req, res) => {
 };
 
 exports.createStore = async (req, res) => {
-    const store = new Store(req.body);
-    await store.save();
-    res.redirect('/');
+    const store = await new Store(req.body).save();
+    req.flash('success', `We added ${store.name}! Now you can leave a reivew for it!`);
+    res.redirect(`/store/${store.slug}`);
 };

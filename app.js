@@ -49,7 +49,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-// The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
+// The flash middleware let's us use req.flash('error', 'Thank You!'), which will then pass that message to the next page the user requests
 app.use(flash());
 
 // pass variables to our templates + all requests
@@ -67,7 +67,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// After allllll that above middleware, we finally handle our own routes!
+// handle our own routes
 app.use('/', routes);
 
 // If that above routes didnt work, we 404 them and forward to error handler
