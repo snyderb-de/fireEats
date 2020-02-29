@@ -1,0 +1,7 @@
+## List formats:
+
+youtube-dl https://www.youtube.com/playlist?list=PLQ56Yiu6lEaynkdfz1f_QHjYP_bTFz2jF -F
+
+## Download playlist and format file name/number.
+
+youtube-dl -f best -v --print-traffic -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' https://www.youtube.com/playlist?list=PLQ56Yiu6lEaynkdfz1f_QHjYP_bTFz2jF
